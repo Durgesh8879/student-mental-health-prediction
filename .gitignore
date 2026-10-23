@@ -1,0 +1,22 @@
+# Python cache
+
+**pycache**/
+*.py[cod]
+
+# Virtual environments
+
+.venv/
+venv/
+env/
+
+# Environment secrets
+
+.env
+
+# Jupyter temporary files
+
+.ipynb_checkpoints/
+
+# Dataset
+
+Student Social Media And Mental Health Impact.csv

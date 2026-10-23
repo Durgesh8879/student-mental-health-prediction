@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3f8fb">
+  <meta name="description" content="Explore how everyday habits relate to student mental wellness with an educational machine-learning model.">
+  <title>Student Mental Wellness Predictor</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Student Mental Wellness Predictor home">
+      <span class="brand-mark" aria-hidden="true">✳</span>
+      <span>well<span class="brand-accent">mind</span></span>
+    </a>
+    <span class="topbar-note"><span class="online-dot" aria-hidden="true"></span> Student wellness insight</span>
+  </header>
+
+  <main class="page-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <div class="intro-copy">
+        <p class="eyebrow">A moment to check in</p>
+        <h1 id="page-title">Student Mental<br class="desktop-break"> Wellness Predictor</h1>
+        <p class="intro-description">Explore how your daily routines connect with a model-generated wellness score. Your answers help the model create an educational estimate.</p>
+      </div>
+      <div class="intro-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-sun"></div>
+        <div class="art-leaf leaf-one"></div>
+        <div class="art-leaf leaf-two"></div>
+        <div class="art-hill hill-back"></div>
+        <div class="art-hill hill-front"></div>
+      </div>
+    </section>
+
+    <div class="content-grid">
+      <form id="prediction-form" class="form-card" novalidate>
+        <div class="form-heading">
+          <div>
+            <p class="eyebrow">Your profile</p>
+            <h2>Tell us a little about you</h2>
+          </div>
+          <span class="required-note"><span aria-hidden="true">*</span> Required</span>
+        </div>
+
+        <fieldset class="field-group">
+          <legend><span class="section-icon personal-icon" aria-hidden="true">01</span><span><strong>Personal Information</strong><small>A few basics to get started</small></span></legend>
+          <div class="field-grid">
+            <label class="field" for="Age">
+              <span>Age <span class="required-mark">*</span></span>
+              <input id="Age" name="Age" type="number" min="10" max="100" step="1" placeholder="e.g. 20" required>
+            </label>
+            <label class="field" for="Gender">
+              <span>Gender <span class="required-mark">*</span></span>
+              <select id="Gender" name="Gender" required>
+                <option value="" disabled selected>Select gender</option>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </label>
+            <label class="field field-wide" for="Country">
+              <span>Country <span class="required-mark">*</span></span>
+              <select id="Country" name="Country" required>
+                <option value="" disabled selected>Select country</option>
+                <option>India</option><option>USA</option><option>Canada</option><option>Australia</option><option>UK</option>
+                <option>Germany</option><option>Mexico</option><option>Turkey</option><option>France</option><option>Other</option>
+              </select>
+            </label>
+            <label class="field field-wide" for="Academic_Level">
+              <span>Academic Level <span class="required-mark">*</span></span>
+              <select id="Academic_Level" name="Academic_Level" required>
+                <option value="" disabled selected>Select academic level</option>
+                <option>Undergraduate</option><option>Graduate</option><option>High School</option>
+              </select>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field-group">
+          <legend><span class="section-icon digital-icon" aria-hidden="true">02</span><span><strong>Digital Habits</strong><small>How you spend time online</small></span></legend>
+          <div class="field-grid">
+            <label class="field field-wide" for="Most_Used_Platform">
+              <span>Most-Used Platform <span class="required-mark">*</span></span>
+              <select id="Most_Used_Platform" name="Most_Used_Platform" required>
+                <option value="" disabled selected>Select a platform</option>
+                <option>Facebook</option><option>LinkedIn</option><option>Instagram</option><option>Snapchat</option>
+                <option>Twitter</option><option>YouTube</option><option>TikTok</option><option>LINE</option>
+                <option>KakaoTalk</option><option>VKontakte</option><option>WhatsApp</option><option>WeChat</option>
+              </select>
+            </label>
+            <label class="field field-wide" for="Purpose_Of_Use">
+              <span>Main Purpose <span class="required-mark">*</span></span>
+              <select id="Purpose_Of_Use" name="Purpose_Of_Use" required>
+                <option value="" disabled selected>Select a purpose</option>
+                <option>Networking</option><option>Education</option><option>Entertainment</option><option>News</option>
+              </select>
+            </label>
+            <label class="field" for="Avg_Daily_Usage_Hours">
+              <span>Daily Usage <span class="required-mark">*</span></span>
+              <span class="input-unit"><input id="Avg_Daily_Usage_Hours" name="Avg_Daily_Usage_Hours" type="number" min="0" max="24" step="any" placeholder="0–24" required><span>hours</span></span>
+            </label>
+            <label class="field" for="Daily_Unlocks">
+              <span>Daily Phone Unlocks <span class="required-mark">*</span></span>
+              <span class="input-unit"><input id="Daily_Unlocks" name="Daily_Unlocks" type="number" min="0" step="1" placeholder="e.g. 40" required><span>times</span></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field-group last-group">
+          <legend><span class="section-icon lifestyle-icon" aria-hidden="true">03</span><span><strong>Lifestyle</strong><small>Your daily balance and routines</small></span></legend>
+          <div class="field-grid">
+            <label class="field" for="Study_Hours">
+              <span>Study Time <span class="required-mark">*</span></span>
+              <span class="input-unit"><input id="Study_Hours" name="Study_Hours" type="number" min="0" max="24" step="any" placeholder="0–24" required><span>hours</span></span>
+            </label>
+            <label class="field" for="Physical_Activity_Hours">
+              <span>Physical Activity <span class="required-mark">*</span></span>
+              <span class="input-unit"><input id="Physical_Activity_Hours" name="Physical_Activity_Hours" type="number" min="0" max="4" step="any" placeholder="0–4" required><span>hours</span></span>
+            </label>
+            <label class="field" for="Sleep_Hours_Per_Night">
+              <span>Sleep per Night <span class="required-mark">*</span></span>
+              <span class="input-unit"><input id="Sleep_Hours_Per_Night" name="Sleep_Hours_Per_Night" type="number" min="0" max="24" step="any" placeholder="0–24" required><span>hours</span></span>
+            </label>
+            <label class="field" for="Stress_Level">
+              <span>Stress Level <span class="required-mark">*</span></span>
+              <select id="Stress_Level" name="Stress_Level" required>
+                <option value="" disabled selected>Select stress level</option>
+                <option>Low</option><option>Medium</option><option>High</option><option>Very High</option>
+              </select>
+            </label>
+          </div>
+        </fieldset>
+
+        <div id="form-error" class="message error-message" role="alert" hidden></div>
+        <button id="submit-button" class="submit-button" type="submit">
+          <span class="button-label">Generate my prediction</span>
+          <span class="button-arrow" aria-hidden="true">→</span>
+        </button>
+        <p class="form-footnote"><span aria-hidden="true">⌁</span> Your information is used only to request this prediction.</p>
+      </form>
+
+      <aside class="results-column" aria-label="Prediction results">
+        <section id="result-card" class="result-card" aria-live="polite" hidden>
+          <div class="result-topline">
+            <span class="result-icon" aria-hidden="true">✳</span>
+            <span class="result-status"><span class="online-dot" aria-hidden="true"></span> Prediction complete</span>
+          </div>
+          <p class="eyebrow">Your model result</p>
+          <h2>Your wellness<br>score</h2>
+          <p class="result-caption">The score returned by the model for the information you provided.</p>
+          <p class="score-value"><span id="score-value">—</span></p>
+          <div class="completion-meter" role="progressbar" aria-label="Prediction request complete" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+            <span></span>
+          </div>
+          <p class="meter-caption">Prediction request complete</p>
+          <button id="reset-button" class="reset-button" type="button">Start a new check-in <span aria-hidden="true">↗</span></button>
+        </section>
+
+        <section id="result-placeholder" class="placeholder-card">
+          <div class="placeholder-illustration" aria-hidden="true">
+            <span class="placeholder-sun"></span>
+            <span class="placeholder-plant plant-left"></span>
+            <span class="placeholder-plant plant-right"></span>
+            <span class="placeholder-ground"></span>
+            <span class="placeholder-star star-left">✦</span>
+            <span class="placeholder-star star-right">✧</span>
+          </div>
+          <p class="eyebrow">A thoughtful check-in</p>
+          <h2>Your result will<br>appear here</h2>
+          <p>Complete the form to receive a prediction from your connected model.</p>
+          <div class="placeholder-divider"></div>
+          <p class="privacy-note"><span aria-hidden="true">♡</span> A small step toward understanding your habits.</p>
+        </section>
+
+        <div class="disclaimer"><span class="disclaimer-icon" aria-hidden="true">i</span><p><strong>A gentle reminder</strong>This is an educational model prediction, not a medical diagnosis or substitute for professional advice.</p></div>
+      </aside>
+    </div>
+    <footer class="page-footer"><span>wellmind</span><span>Take care of your whole self.</span></footer>
+  </main>
+</body>
+</html>
